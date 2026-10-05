@@ -440,6 +440,11 @@ function Tasks({ s }: { s: SlideDef }) {
 
 /* ---------- the deck ---------- */
 
+function toggleFull() {
+  if (document.fullscreenElement) void document.exitFullscreen()
+  else void document.documentElement.requestFullscreen?.()
+}
+
 export function Presentation() {
   const store = useStore()
   const [i, setI] = useState(0)
@@ -497,11 +502,6 @@ export function Presentation() {
     document.addEventListener('fullscreenchange', f)
     return () => document.removeEventListener('fullscreenchange', f)
   }, [])
-
-  const toggleFull = () => {
-    if (document.fullscreenElement) void document.exitFullscreen()
-    else void document.documentElement.requestFullscreen?.()
-  }
 
   const c = useMemo(() => content(s.id, s), [s])
   const center = s.model === 'center'

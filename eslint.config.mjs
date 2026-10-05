@@ -8,7 +8,7 @@ const eslintConfig = defineConfig([
   {
     // react-three-fiber code mutates materials, lights and meshes inside useFrame on purpose;
     // the React Compiler "immutability" rule is written for ordinary components and flags every one of those.
-    files: ['components/bench/**/*.{ts,tsx}'],
+    files: ['components/bench/**/*.{ts,tsx}', 'components/present/PresentScene.tsx'],
     rules: { 'react-hooks/immutability': 'off' },
   },
   // Override default ignores of eslint-config-next.
