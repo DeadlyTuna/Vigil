@@ -79,7 +79,7 @@ function Rig({ index }: { index: React.RefObject<number> }) {
     if (narrow) tmp.d.multiplyScalar(Math.min(2.2, 1 / aspect + 0.25))
     else if (aspect < 1.5) tmp.d.multiplyScalar(1 + (1.5 - aspect) * 0.5)
     // side layouts leave the model only half the screen
-    if (!narrow) tmp.d.multiplyScalar(1 + 1.0 * Math.abs(SHIFT[sl.model]))
+    if (!narrow) tmp.d.multiplyScalar(1 + 1.15 * Math.abs(SHIFT[sl.model]))
     tmp.d.applyAxisAngle(new THREE.Vector3(0, 1, 0), sway)
     tmp.p.copy(tmp.l).add(tmp.d)
 
@@ -92,7 +92,7 @@ function Rig({ index }: { index: React.RefObject<number> }) {
     c.look.y = damp(c.look.y, tmp.l.y, k * 1.15, dt)
     c.look.z = damp(c.look.z, tmp.l.z, k * 1.15, dt)
     c.fov = damp(c.fov, sl.cam.fov ?? 30, k, dt)
-    c.shift = damp(c.shift, narrow ? 0 : SHIFT[sl.model] * Math.min(0.32, 0.26 + Math.max(0, 1.78 - aspect) * 0.14), 3, dt)
+    c.shift = damp(c.shift, narrow ? 0 : SHIFT[sl.model] * Math.min(0.33, 0.27 + Math.max(0, 1.78 - aspect) * 0.14), 3, dt)
 
     const cam = camera as THREE.PerspectiveCamera
     cam.position.copy(c.pos)
