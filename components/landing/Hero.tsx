@@ -43,6 +43,16 @@ export function Hero() {
       />
 
       <div className="mx-auto flex w-full max-w-[1680px] flex-col px-4 sm:px-6 lg:min-h-[calc(100dvh-57px-92px)]">
+        <motion.div
+          initial={{ opacity: 0, x: 16 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="ml-auto"
+        >
+          <Link href="/present" className="btn btn-ghost !h-10 !px-5 !text-[14px]">
+            View presentation
+          </Link>
+        </motion.div>
         <div className="flex flex-1 flex-col justify-center py-10 sm:py-14 lg:max-w-[min(700px,46%)]">
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.1 }} className="label flex items-center gap-2.5">
             <span className="h-px w-8 bg-steel-300" aria-hidden />
